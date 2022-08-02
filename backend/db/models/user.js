@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     };
     static associate(models) {
       // define association here
-      User.hasMany(models.Spot, { foreignKey: "ownerId" })
-      User.hasMany(models.Booking, { foreignKey: "userId" })
-      User.hasMany(models.Review, { foreignKey: "userId" })
+      // User.hasMany(models.Spot, { foreignKey: "ownerId" })
+      // User.hasMany(models.Booking, { foreignKey: "userId" })
+      // User.hasMany(models.Review, { foreignKey: "userId" })
     }
 
     static getCurrentUserById(id) {
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
 
-    static async signup({ username, email, password }) {
+    static async signup({firstName, lastName, username, email, password }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
         firstName,
@@ -56,9 +56,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
         validate: {
-          len: [4, 30],
+          len: [0, 30],
           isNotEmail(value) {
             if (Validator.isEmail(value)) {
               throw new Error("Cannot be an email.");
@@ -115,7 +115,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword", "createdAt", "updatedAt"] }
+          attributes: { exclude: ["hashedPassword", "username", "createdAt", "updatedAt"] }
         },
         loginUser: {
           attributes: {}
