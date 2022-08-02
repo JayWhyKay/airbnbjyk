@@ -320,7 +320,6 @@ router.patch(
     const images = await SpotsImage.findAll({
       where: { spotId: req.params.id },
     });
-    console.log("!!!!!!!!!!!!!!!!!!!!!"+images)
     await images[0].update({
       url: imageURL,
     });
