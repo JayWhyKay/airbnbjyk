@@ -8,12 +8,15 @@ module.exports = (sequelize, DataTypes) => {
       const { id, username, email } = this; // context will be the User instance
       return { id, username, email };
     }
-    static associate(models) {
-      // define association here
-    }
     validatePassword(password) {
       return bcrypt.compareSync(password, this.hashedPassword.toString());
     };
+    static associate(models) {
+      // define association here
+      User.hasMany(models.Spot, { foreignKey: "ownerId" })
+      User.hasMany(models.Booking, { foreignKey: "userId" })
+      User.hasMany(models.Review, { foreignKey: "userId" })
+    }
 
     static getCurrentUserById(id) {
       return User.scope("currentUser").findByPk(id);
@@ -37,13 +40,15 @@ module.exports = (sequelize, DataTypes) => {
     static async signup({ username, email, password }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
+        firstName,
+        lastName,
         username,
         email,
         hashedPassword
       });
       return await User.scope('currentUser').findByPk(user.id);
     }
-    
+
   };
 
 
@@ -57,6 +62,30 @@ module.exports = (sequelize, DataTypes) => {
           isNotEmail(value) {
             if (Validator.isEmail(value)) {
               throw new Error("Cannot be an email.");
+            }
+          }
+        }
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1, 30],
+          isNotEmail(value) {
+            if (Validator.isEmail(value)) {
+              throw new Error('Cannot be an email.');
+            }
+          }
+        }
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1, 30],
+          isNotEmail(value) {
+            if (Validator.isEmail(value)) {
+              throw new Error('Cannot be an email.');
             }
           }
         }
@@ -81,12 +110,12 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "User",
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
+          exclude: ["hashedPassword", "username", "email", "createdAt", "updatedAt"]
         }
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword"] }
+          attributes: { exclude: ["hashedPassword", "createdAt", "updatedAt"] }
         },
         loginUser: {
           attributes: {}
