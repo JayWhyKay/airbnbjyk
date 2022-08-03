@@ -15,7 +15,7 @@ module.exports = {
       "Spots",
       [
         {
-          ownerId: 1,
+          ownerId: 2,
           address: "123 State St",
           city: "Los Angeles",
           state: "California",
@@ -30,7 +30,7 @@ module.exports = {
             "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           address: "123 Ash St",
           city: "Burbank",
           state: "California",
@@ -90,7 +90,7 @@ module.exports = {
             "https://images.unsplash.com/photo-1567428485548-c499e4931c10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Njh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         },
         {
-          ownerId: 3,
+          ownerId: 2,
           address: "123123 Deermoore St",
           city: "San Francisco",
           state: "California",

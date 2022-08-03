@@ -92,6 +92,7 @@ module.exports = {
           url:
             "https://images.unsplash.com/photo-1508330570239-ce7cabceee22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0OTcyNTAzfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=300&q=60",
         },
+        
       ],
       {}
     );

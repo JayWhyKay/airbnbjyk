@@ -32,7 +32,7 @@ function App() {
         {/* <Route path='/users/:id/bookings'>
           <ManageBookingList />
         </Route> */}
-        <Route path="/users/:id/spots">
+        <Route path="/users/:id/listings">
           <ManageListingPage />
         </Route>
         <Route path="/users/:id/reviews">

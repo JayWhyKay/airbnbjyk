@@ -5,7 +5,7 @@ import { loadOneSpot } from '../../store/spots';
 import Reviews from '../Reviews';
 import ReviewModal from '../ReviewFormModal';
 import BookingConfirmation from '../BookingConfirmation';
-import './SpotDetailPage.css';
+import './SpotByID.css';
 import BookingForm from '../BookingForm';
 
 

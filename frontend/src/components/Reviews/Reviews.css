@@ -1,21 +1,28 @@
-.ind-review {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: 20px 50px 20px 0px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 100;
-    font-size: 15px;
-}
-
-.review-list-rating {
+.all__reviews__container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.review-content {
-    display: block;
-    max-width: 100%;
-    word-wrap: break-word;
+.review_container {
+    width: 45%;
+    margin-bottom: 40px;
+    padding-right: 20px;
+}
 
+.review_container__header {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.review_container__header > p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.review_container__header > span {
+    font-size: 14px;
+    color: gray;
 }

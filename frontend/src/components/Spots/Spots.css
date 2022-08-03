@@ -79,4 +79,5 @@
     flex-direction: row;
     justify-content: flex-end;
     padding-top: 0px;
+    align-items: center;
 }

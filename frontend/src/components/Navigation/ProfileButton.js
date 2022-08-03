@@ -69,13 +69,13 @@ function ProfileButton({ user }) {
           <div className="profile__email">{user.email}</div>
           <div
             className="profile__listings"
-            onClick={() => history.push(`/user/my-listings`)}
+            onClick={() => history.push(`/users/${user.id}/listings`)}
           >
             <button className="profile__link">My Listings</button>
           </div>
           <div
             className="profile__listings"
-            onClick={() => history.push(`/user/my-reviews`)}
+            onClick={() => history.push(`/users/${user.id}/reviews`)}
           >
             <button className="profile__link">My Reviews</button>
           </div>

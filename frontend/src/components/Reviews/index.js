@@ -1,36 +1,42 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { loadSpotReviews } from '../../store/reviews';
-import './Reviews.css';
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loadSpotReviews } from "../../store/reviews";
+import "./Reviews.css";
 
-function Reviews({ id }) {
-    const dispatch = useDispatch();
-    const reviews = useSelector(state => Object.values(state.reviews));
-    const spotReviews = reviews.filter(review => review.spotId === Number(id));
+function Reviews({ spotId }) {
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const reviews = useSelector((state) => Object.values(state.reviews));
+  const spotReviews = reviews.filter(
+    (review) => review.spotId === Number(spotId)
+  );
 
-    useEffect(() => {
-        dispatch(loadSpotReviews(id))
-    }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(loadSpotReviews(spotId)).then(() => setIsLoaded(true));
+  }, [dispatch, spotId]);
 
-    return (
-        <>
-            {
-                spotReviews && (
-                    <>
-                        {spotReviews.map(review => (
-                            <div key={review.id} className='ind-review'>
-                                <div className='review-list-rating'>
-                                    <i className="fa-solid fa-star"></i>
-                                    <p>{review.stars}</p>
-                                </div>
-                                <div className='review-content'>{review.review}</div>
-                            </div>
-                        ))}
-                    </>
-                )
-            }
-        </>
-    );
+  const dateToString = (data) => {
+    const date = new Date(data);
+    const dateParams = { year: "numeric", month: "long" };
+    return date.toLocaleDateString(undefined, dateParams);
+  };
+
+  return (
+    <div className="all__reviews__container">
+      {isLoaded &&
+        spotReviews.slice(0, 6).map((review) => {
+          return (
+            <div key={`review` + review.id} className="review_container">
+              <div className="review_container__header">
+                <p>{review.User.firstName}</p>
+                <span>{dateToString(review.updatedAt)}</span>
+              </div>
+              <div>{review.review}</div>
+            </div>
+          );
+        })}
+    </div>
+  );
 }
 
 export default Reviews;
