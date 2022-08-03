@@ -4,7 +4,7 @@ import ReviewForm from './ReviewForm';
 import LoginForm from '../LoginFormModal/LoginForm';
 import './ReviewFormMl.css';
 
-function ReviewFormModal({ user, spotId, change, reviewId }) {
+function ReviewModal({ user, spotId, change, reviewId }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -22,4 +22,4 @@ function ReviewFormModal({ user, spotId, change, reviewId }) {
     );
 }
 
-export default ReviewFormModal;
+export default ReviewModal;

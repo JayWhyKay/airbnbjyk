@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadSpotReviews } from '../../store/reviews';
-import './ReviewStarDisplay.css';
+import './ReviewStars.css';
 
-function ReviewStarDisplay({ id }) {
-    console.log('id', id);
+function ReviewStars({ spotId }) {
     const dispatch = useDispatch();
     const [isloaded, setIsloaded] = useState(false);
     const reviews = useSelector(state => Object.values(state.reviews));
-    const spotReviews = reviews.filter(review => review.spotId === Number(id));
-    console.log('spotreviews', spotReviews)
+    const spotReviews = reviews.filter(review => review.spotId === Number(spotId));
+
     let ratingSum = 0;
     for (let review of spotReviews) {
         ratingSum += review.stars;
     }
     const avgStarRating = (ratingSum / spotReviews.length).toFixed(1);
-    // console.log(avgStarRating);
 
     useEffect(() => {
-        dispatch(loadSpotReviews(id))
+        dispatch(loadSpotReviews(spotId))
             .then(() => setIsloaded(true));
-    }, [dispatch, id]);
+    }, [dispatch, spotId]);
 
     return (
         <>
@@ -36,4 +34,4 @@ function ReviewStarDisplay({ id }) {
     );
 }
 
-export default ReviewStarDisplay;
+export default ReviewStars;

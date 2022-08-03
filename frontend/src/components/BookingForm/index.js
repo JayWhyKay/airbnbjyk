@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import ReviewStarDisplay from '../ReviewStarDisplay';
+import ReviewStars from './ReviewStars';
 import { addBooking } from '../../store/bookings';
 import './BookingForm.css';
 import { useHistory } from 'react-router-dom';
 
-function BookingForm({ id }) {
+function BookingForm({ spotId }) {
     const dispatch = useDispatch();
     const history = useHistory();
-    const spot = useSelector(state => state.spots[id]);
+    const spot = useSelector(state => state.spots[spotId]);
     const sessionUser = useSelector(state => state.session.user);
 
     const [startDate, setStartDate] = useState('')
@@ -19,8 +19,8 @@ function BookingForm({ id }) {
         e.preventDefault();
         if (sessionUser) {
             setErrors({});
-            dispatch(addBooking(id, { startDate, endDate }))
-                .then(data => history.push(`/spots/${id}/bookings/${data.id}`))
+            dispatch(addBooking(spotId, { startDate, endDate }))
+                .then(data => history.push(`/spots/${spotId}/bookings/${data.id}`))
                 .catch(
                     async (res) => {
                         const data = await res.json();
@@ -40,7 +40,7 @@ function BookingForm({ id }) {
                     <p>night</p>
                 </div>
                 <div>
-                    <ReviewStarDisplay id={id} />
+                    <ReviewStars spotId={spotId} />
                     <p>-</p>
                     <div className='booking-review-count'>{`${spot.numReviews} reviews`}</div>
                 </div>

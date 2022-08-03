@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadSpotReviews } from '../../store/reviews';
-import './ReviewList.css';
+import './Reviews.css';
 
-function ReviewList({ id }) {
+function Reviews({ id }) {
     const dispatch = useDispatch();
     const reviews = useSelector(state => Object.values(state.reviews));
     const spotReviews = reviews.filter(review => review.spotId === Number(id));
@@ -33,4 +33,4 @@ function ReviewList({ id }) {
     );
 }
 
-export default ReviewList;
+export default Reviews;
