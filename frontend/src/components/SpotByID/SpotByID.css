@@ -19,10 +19,11 @@
 
 .spotByID_details {
     max-width: 500px;
-    min-width: 400px;
+    min-width: 500px;
     width: 50%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-direction: row;
 }
 

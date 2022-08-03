@@ -137,16 +137,6 @@ function SpotForm({ spotId, onClose, type }) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="form-element description">
-          <label>Description</label>
-          <textarea
-            rows="3"
-            cols="53"
-            value={description}
-            maxLength="250"
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
         <div className="form-element">
           <label>Price</label>
           <input
@@ -158,12 +148,22 @@ function SpotForm({ spotId, onClose, type }) {
           />
         </div>
         <div className="form-element">
-          <label>Image url</label>
+          <label>Preview image url</label>
           <input
             type="text"
             value={previewImage}
             maxLength="250"
             onChange={(e) => setPreviewImage(e.target.value)}
+          />
+        </div>
+        <div className="form-element description">
+          <label>Description</label>
+          <textarea
+            rows="3"
+            cols="53"
+            value={description}
+            maxLength="250"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div className="form-element__submit">

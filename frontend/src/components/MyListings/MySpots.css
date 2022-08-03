@@ -29,11 +29,17 @@
 }
 
 .card__details {
-  /* background-color: aquamarine; */
   margin-left: 5%;
   width: 100%;
   min-width: 250px;
   max-width: 500px;
+}
+
+.card__details:hover {
+  background: rgba(128, 128, 128, 0.2);
+  border-radius: 15px;
+  height: 101%;
+  cursor: pointer;
 }
 
 .card__details > h3 {
@@ -53,9 +59,13 @@
 }
 
 .edit__listing__container {
+
   width: 320px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
 }
 
 .edit__listing__container > button {
@@ -66,6 +76,7 @@
   height: 25px;
   width: 150px;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .edit__listing__container > button:hover {

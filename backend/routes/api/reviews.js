@@ -55,7 +55,7 @@ const verifyReviewImageMaxCount = async (req, res, next) => {
         const err = new Error('Maximum number of images for this resource was reached');
         err.status = 400;
         err.title = "Maximum number of images for this resource was reached";
-        err.message = "Maximum number of images for this resource was reached";
+        err.errors = ["Maximum number of images for this resource was reached"];
         next(err);
     }
     next();
@@ -82,7 +82,7 @@ router.post('/:id/images', requireAuth, verifyReviewId, verifyReviewOwner, verif
 });
 
 router.put('/:id', requireAuth, validateReviewInput, verifyReviewId, verifyReviewOwner, async (req, res, next) => {
-    const { review, stars, imageURL } = req.body;
+    const { review, stars } = req.body;
     try {
         const reviewToUpdate = await Review.findByPk(req.params.id);
         await reviewToUpdate.update({

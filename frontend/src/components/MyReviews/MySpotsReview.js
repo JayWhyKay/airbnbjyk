@@ -31,7 +31,7 @@ function ReviewListByYou({ id }) {
     <div>
       {isLoaded &&
         reviewsByYou?.map((review) => (
-          <div key={"review" + review.id} className="myreview__container" onClick={()=>history.push(`/listings/${review.spotId}`)}>
+          <div key={"review" + review.id} className="myreview__container">
             <div className="myreview__body">
               {/* <img src={review.Spot.previewImage} alt='spot-preview' /> */}
               {/* <div className='review-images'>
@@ -48,7 +48,7 @@ function ReviewListByYou({ id }) {
                   </span>
                 )}
               </div>
-              <div className="my_review__content">
+              <div className="my_review__content"  onClick={()=>history.push(`/listings/${review.spotId}`)}>
                 <h3>Review for {review.Spot.name}</h3>
                 <p>
                   {review.Spot.city}, {review.Spot.state}
