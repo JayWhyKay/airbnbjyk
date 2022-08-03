@@ -5,12 +5,14 @@ import {
   removeReview,
   updateUserReviews,
 } from "../../store/reviews";
+import { useHistory } from "react-router-dom";
 import ReviewModal from "../ReviewsModal";
 // import ImageFormModal from '../ImageFormModal';
 import "./MySpotsReview.css";
 
 function ReviewListByYou({ id }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [isLoaded, setIsLoaded] = useState(false);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const reviewsByYou = reviews.filter((review) => review.userId === Number(id));
@@ -29,7 +31,7 @@ function ReviewListByYou({ id }) {
     <div>
       {isLoaded &&
         reviewsByYou?.map((review) => (
-          <div key={"review" + review.id} className="myreview__container">
+          <div key={"review" + review.id} className="myreview__container" onClick={()=>history.push(`/listings/${review.spotId}`)}>
             <div className="myreview__body">
               {/* <img src={review.Spot.previewImage} alt='spot-preview' /> */}
               {/* <div className='review-images'>
@@ -37,7 +39,7 @@ function ReviewListByYou({ id }) {
                         </div> */}
               <div>
                 {review.Images.length > 0 ? (
-                  review.Images.map((image, index) => (
+                  review.Images.slice(0,4).map((image, index) => (
                     <img key={index} src={image.url} alt="review-img-ind" />
                   ))
                 ) : (

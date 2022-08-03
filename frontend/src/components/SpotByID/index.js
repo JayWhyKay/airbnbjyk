@@ -4,9 +4,9 @@ import { useParams, Route } from 'react-router-dom';
 import { loadOneSpot } from '../../store/spots';
 import Reviews from '../Reviews';
 import ReviewModal from '../ReviewsModal';
-import BookingConfirmation from '../BookingConfirmation';
+// import BookingConfirmation from '../BookingConfirmation';
 import './SpotByID.css';
-import BookingForm from '../BookingForm';
+// import BookingForm from '../BookingForm';
 
 
 function SpotByID() {
@@ -106,7 +106,7 @@ function SpotByID() {
           <div className="review_byId_header">
             <div>
               <i className="fa-solid fa-star"></i>
-              <span>{spot.avgStarRating ? spot.avgStarRating : "New"}</span>
+              <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : "New"}</span>
               <span>{` · `}</span>
               <div>{`${spot.numReviews} reviews`}</div>
             </div>
