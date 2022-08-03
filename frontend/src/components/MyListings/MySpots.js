@@ -8,7 +8,7 @@ import "./MySpots.css";
 
 function MySpots({ id }) {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const [isLoaded, setIsLoaded] = useState(false);
   const spots = useSelector((state) => Object.values(state.spots));
   const spotsByYou = spots.filter((spot) => spot.ownerId === Number(id));
@@ -31,7 +31,10 @@ function MySpots({ id }) {
             <div>
               <img src={spot.previewImage} alt="spot preview" />
             </div>
-            <div className="card__details" onClick={()=>history.push(`/listings/${spot.id}`)}>
+            <div
+              className="card__details"
+              onClick={() => history.push(`/listings/${spot.id}`)}
+            >
               <h3>{spot.name}</h3>
               <ul>
                 <li>{spot.address}</li>
@@ -46,19 +49,19 @@ function MySpots({ id }) {
                 </li>
               </ul>
             </div>
-              <div className="edit__listing__container" >
-                <SpotModal spotId={spot.id} type="Edit Listing" />
-                <button
-                  className="delete-spots"
-                  onClick={() =>
-                    dispatch(removeSpot(spot.id)).then(
-                      dispatch(updateUserReviews(id))
-                    )
-                  }
-                >
-                  Delete Listing
-                </button>
-              </div>
+            <div className="edit__listing__container">
+              <SpotModal spotId={spot.id} type="Edit Listing" />
+              <button
+                className="delete-spots"
+                onClick={() =>
+                  dispatch(removeSpot(spot.id)).then(
+                    dispatch(updateUserReviews(id))
+                  )
+                }
+              >
+                Delete Listing
+              </button>
+            </div>
           </div>
         ))}
     </div>

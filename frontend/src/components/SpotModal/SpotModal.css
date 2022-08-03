@@ -9,10 +9,10 @@
 }
 
 .showModal__button:hover {
-  background-color: rgba(200,200,200, 0.1);
+  background-color: rgba(200, 200, 200, 0.1);
   box-shadow: 1px 1px 2px 3px rgba(128, 128, 128, 0.5);
 }
 
-.spotModal__form{
+.spotModal__form {
   overflow: hidden;
 }

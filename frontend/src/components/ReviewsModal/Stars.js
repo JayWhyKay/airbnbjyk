@@ -53,22 +53,22 @@ function RatingIcon(props) {
   );
 }
 
-function Stars({setStars, setFocus, stars, focus}) {
-  const onMouseEnter=(index)=>{
-    setFocus(index)
-  }
-  const onMouseLeave=()=>{
-    setFocus(0)
-  }
-  const onSaveRating=(index)=>{
-    setStars(index)
-  }
+function Stars({ setStars, setFocus, stars, focus }) {
+  const onMouseEnter = (index) => {
+    setFocus(index);
+  };
+  const onMouseLeave = () => {
+    setFocus(0);
+  };
+  const onSaveRating = (index) => {
+    setStars(index);
+  };
   return (
     <div className="star__container">
       {[1, 2, 3, 4, 5].map((index, i) => {
         return (
           <RatingIcon
-            key={'stars' + i}
+            key={"stars" + i}
             index={index}
             rating={stars}
             hoverRating={focus}

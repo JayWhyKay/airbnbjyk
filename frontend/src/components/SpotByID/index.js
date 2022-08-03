@@ -1,35 +1,35 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { useParams, Route } from 'react-router-dom';
-import { loadOneSpot } from '../../store/spots';
-import Reviews from '../Reviews';
-import ReviewModal from '../ReviewsModal';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useParams, Route } from "react-router-dom";
+import { loadOneSpot } from "../../store/spots";
+import Reviews from "../Reviews";
+import ReviewModal from "../ReviewsModal";
 // import BookingConfirmation from '../BookingConfirmation';
-import './SpotByID.css';
+import "./SpotByID.css";
 // import BookingForm from '../BookingForm';
 
-
 function SpotByID() {
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    const [isLoaded, setIsLoaded] = useState(false);
-    const spot = useSelector(state => state.spots[+id]);
-    const sessionUser = useSelector(state => state.session.user)
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const spot = useSelector((state) => state.spots[+id]);
+  const sessionUser = useSelector((state) => state.session.user);
 
-    useEffect(() => {
-        dispatch(loadOneSpot(id))
-            .then(() => setIsLoaded(true))
-    }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(loadOneSpot(id)).then(() => setIsLoaded(true));
+  }, [dispatch, id]);
 
-
-    return (
-      isLoaded && (
-        <div className="spotsByID__Container">
+  return (
+    isLoaded && (
+      <div className="spotsByID__Container">
         <div className="spotsByID__header">
           <h1>{spot.name}</h1>
           <div className="spotByID_details">
             <i className="fa-solid fa-star"></i>
-            <span> {spot.avgStarRating ? spot.avgStarRating.toFixed(2) : "New" }</span>
+            <span>
+              {" "}
+              {spot.avgStarRating ? spot.avgStarRating.toFixed(2) : "New"}
+            </span>
             <span>{` · `}</span>
             <span>{spot.numReviews} reviews</span>
             <span>{` · `}</span>
@@ -44,16 +44,20 @@ function SpotByID() {
         </div>
         <div className="spotById__Image">
           <img src={spot.previewImage} alt={spot.id} />
-          {spot.images ? spot.images.slice(0,4).map((image, i) => {
-            return (
-              <img
-                className={`img__by__id__${i}`}
-                key={"image" + i}
-                src={image.url}
-                alt="spot images"
-              />
-            )
-          }): <span>No images were provided.</span>}
+          {spot.images ? (
+            spot.images.slice(0, 4).map((image, i) => {
+              return (
+                <img
+                  className={`img__by__id__${i}`}
+                  key={"image" + i}
+                  src={image.url}
+                  alt="spot images"
+                />
+              );
+            })
+          ) : (
+            <span>No images were provided.</span>
+          )}
         </div>
         <div className="spotById__details__header">
           <h2 className="spotById__host__name">
@@ -106,7 +110,9 @@ function SpotByID() {
           <div className="review_byId_header">
             <div>
               <i className="fa-solid fa-star"></i>
-              <span>{spot.avgStarRating ? spot.avgStarRating.toFixed(2) : "New"}</span>
+              <span>
+                {spot.avgStarRating ? spot.avgStarRating.toFixed(2) : "New"}
+              </span>
               <span>{` · `}</span>
               <div>{`${spot.numReviews} reviews`}</div>
             </div>
@@ -123,12 +129,12 @@ function SpotByID() {
             <Reviews spotId={spot.id} />
           </div>
         </div>
-      {/* <Route path='/bookings/:id'>
+        {/* <Route path='/bookings/:id'>
           <BookingConfirmation spotId={id} />
       </Route> */}
       </div>
     )
-  )
+  );
 }
 
 export default SpotByID;

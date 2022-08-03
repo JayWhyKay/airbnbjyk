@@ -1,16 +1,15 @@
 .spots__form {
-    height: 430px;
-    width: 380px;
-    border-radius: 15px;
-    padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0px 10px;
-  }
+  height: 430px;
+  width: 380px;
+  border-radius: 15px;
+  padding: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0px 10px;
+}
 
 .spots__form::-webkit-scrollbar {
   width: 2px;
-
 }
 
 .spots__form::-webkit-scrollbar-track {
@@ -29,17 +28,17 @@
 }
 
 .spot_form__errors {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 400;
-    color: red;
-    width: 200px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: red;
+  width: 200px;
+}
 
-.spots_form__title{
+.spots_form__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,7 +62,7 @@
 }
 
 .spots_form__close_btn:hover {
-  background-color: rgba(200,200,200, 0.25);
+  background-color: rgba(200, 200, 200, 0.25);
   box-shadow: 1px 1px 2px 3px rgba(128, 128, 128, 0.5);
 }
 
@@ -128,6 +127,6 @@
 }
 
 .form-element__submit > button:hover {
-  background-color: rgba(200,200,200, 0.1);
+  background-color: rgba(200, 200, 200, 0.1);
   box-shadow: 1px 1px 2px 3px rgba(128, 128, 128, 0.5);
 }

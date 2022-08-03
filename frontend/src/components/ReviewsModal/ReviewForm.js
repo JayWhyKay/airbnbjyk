@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { addReview, editReview, loadSpotReviews } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import { loadOneSpot } from "../../store/spots";
-import Stars from "./Stars"
+import Stars from "./Stars";
 import "./ReviewForm.css";
 
 function ReviewForm({ spotId, onClose, type, reviewId }) {
@@ -13,7 +13,6 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
   // const [imageURL, setImageURL] = useState(reviewToEdit? reviewToEdit.Images[0].url:'')
   const [focus, setFocus] = useState(null);
   const [errors, setErrors] = useState([]);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +25,13 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
           if (data) setErrors(Object.values(data.errors));
         });
     } else {
-      dispatch(addReview(spotId, { stars, review}))
+      dispatch(addReview(spotId, { stars, review }))
         .then(() => onClose())
         .then(() => dispatch(loadOneSpot(spotId)))
         .then(() => dispatch(loadSpotReviews(spotId)))
         .catch(async (res) => {
           const data = await res.json();
-          console.log(data)
+          console.log(data);
           if (data) setErrors(Object.values(data.errors));
         });
     }
@@ -75,14 +74,16 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
         <div className="review_text__container">
           <label>Tell us more about your experience:</label>
           <textarea
-              className="edit_review_textarea"
-              maxLength="250"
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
+            className="edit_review_textarea"
+            maxLength="250"
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
           />
         </div>
         <div className="review__form__button__container">
-          <button className="review__form__button" type="submit">Submit</button>
+          <button className="review__form__button" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>

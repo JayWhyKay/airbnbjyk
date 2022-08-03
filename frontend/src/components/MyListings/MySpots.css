@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   float: left;
-  width:  250px;
+  width: 250px;
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
@@ -21,7 +21,7 @@
 
 .mylisting_card > div > img {
   float: left;
-  width:  250px;
+  width: 250px;
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
@@ -45,7 +45,7 @@
 .card__details > h3 {
   font-weight: 500;
   font-size: 18px;
-  margin: 10px ;
+  margin: 10px;
 }
 
 .card__details > ul {
@@ -59,13 +59,11 @@
 }
 
 .edit__listing__container {
-
   width: 320px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 .edit__listing__container > button {
@@ -80,6 +78,6 @@
 }
 
 .edit__listing__container > button:hover {
-  background-color: rgba(200,200,200, 0.1);
+  background-color: rgba(200, 200, 200, 0.1);
   box-shadow: 1px 1px 2px 3px rgba(128, 128, 128, 0.5);
 }

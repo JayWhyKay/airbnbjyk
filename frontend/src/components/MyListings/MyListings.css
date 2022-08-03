@@ -1,4 +1,4 @@
-.spots__landing__container{
+.spots__landing__container {
   margin: 0 10%;
   margin-bottom: 150px;
 }
@@ -9,13 +9,12 @@
   justify-content: space-between;
 }
 
-
-.create__newSpot{
+.create__newSpot {
   display: flex;
   align-items: center;
 }
 
 .existing__spots {
   padding: 0 3%;
-  border-top: 1px solid rgba(121,121,121,0.2);
+  border-top: 1px solid rgba(121, 121, 121, 0.2);
 }

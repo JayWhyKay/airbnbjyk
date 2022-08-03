@@ -17,8 +17,8 @@ function LoginForm({ onClose }) {
         const data = await res.json();
         if (data) setErrors(Object.values(data.errors));
       }
-      );
-    };
+    );
+  };
 
   const loginDemoUser = (e) => {
     e.preventDefault();
@@ -38,7 +38,11 @@ function LoginForm({ onClose }) {
     <div>
       <form className="form_body" onSubmit={handleSubmit}>
         <span>Log in</span>
-        <ul>{errors?.map((error, i)=><li key={`loginError` + i}>{error}</li>)}</ul>
+        <ul>
+          {errors?.map((error, i) => (
+            <li key={`loginError` + i}>{error}</li>
+          ))}
+        </ul>
         <div>
           <label>Email</label>
           <input

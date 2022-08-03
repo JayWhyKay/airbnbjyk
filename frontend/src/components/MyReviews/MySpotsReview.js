@@ -12,7 +12,7 @@ import "./MySpotsReview.css";
 
 function ReviewListByYou({ id }) {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const [isLoaded, setIsLoaded] = useState(false);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const reviewsByYou = reviews.filter((review) => review.userId === Number(id));
@@ -39,7 +39,7 @@ function ReviewListByYou({ id }) {
                         </div> */}
               <div>
                 {review.Images.length > 0 ? (
-                  review.Images.slice(0,4).map((image, index) => (
+                  review.Images.slice(0, 4).map((image, index) => (
                     <img key={index} src={image.url} alt="review-img-ind" />
                   ))
                 ) : (
@@ -48,7 +48,10 @@ function ReviewListByYou({ id }) {
                   </span>
                 )}
               </div>
-              <div className="my_review__content"  onClick={()=>history.push(`/listings/${review.spotId}`)}>
+              <div
+                className="my_review__content"
+                onClick={() => history.push(`/listings/${review.spotId}`)}
+              >
                 <h3>Review for {review.Spot.name}</h3>
                 <p>
                   {review.Spot.city}, {review.Spot.state}
