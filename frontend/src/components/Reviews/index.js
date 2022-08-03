@@ -28,7 +28,7 @@ function Reviews({ spotId }) {
           return (
             <div key={`review` + review.id} className="review_container">
               <div className="review_container__header">
-                <p>{review.User.firstName}</p>
+                <p>{review.User?.firstName}</p>
                 <span>{dateToString(review.updatedAt)}</span>
               </div>
               <div>{review.review}</div>
