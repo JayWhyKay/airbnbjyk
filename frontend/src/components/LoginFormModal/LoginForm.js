@@ -15,13 +15,11 @@ function LoginForm({ onClose }) {
     return dispatch(sessionActions.login({ email, password })).catch(
       async (res) => {
         const data = await res.json();
-        console.log(data)
         if (data) setErrors(Object.values(data.errors));
       }
       );
     };
 
-    console.log(errors)
   const loginDemoUser = (e) => {
     e.preventDefault();
     setErrors([]);

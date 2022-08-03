@@ -5,8 +5,8 @@ import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 import Spots from "./components/Spots";
 import SpotByID from "./components/SpotByID";
-import ManageReviewPage from "./components/ManageReviewPage";
-import ManageListingPage from "./components/ManageListingPage";
+import MyReviews from "./components/MyReviews";
+import MyListings from "./components/MyListings";
 import BookingConfirmation from "./components/BookingConfirmation";
 import ManageBookingList from "./components/ManageBookingList";
 import Footer from "./components/Footer";
@@ -33,10 +33,10 @@ function App() {
           <ManageBookingList />
         </Route> */}
         <Route path="/users/:id/listings">
-          <ManageListingPage />
+          <MyListings />
         </Route>
         <Route path="/users/:id/reviews">
-          <ManageReviewPage />
+          <MyReviews />
         </Route>
         {/* <Route path='/spots/:spotId/bookings/:id'>
           <BookingConfirmation />

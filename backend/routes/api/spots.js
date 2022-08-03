@@ -24,14 +24,18 @@ const validateSpotInput = [
         .withMessage('Country is required'),
     check('lat')
         .exists({ checkFalsy: false })
+        .withMessage('Latitude is required')
         .isNumeric()
+        .withMessage('Latitude is required')
         .custom(v => v >= -90 && v <= 90)
-        .withMessage('Latitude is not valid'),
+        .withMessage('Latitude must be between -90 and 90'),
     check('lng')
         .exists({ checkFalsy: false })
+        .withMessage('Longitude is required')
         .isNumeric()
+        .withMessage('Longitude is required')
         .custom(v => v >= -180 && v <= 180)
-        .withMessage('Longitude is not valid'),
+        .withMessage('Longitude must be between -180 and 180'),
     check('name')
         .exists({ checkFalsy: true })
         .withMessage('Name is required')
@@ -42,8 +46,9 @@ const validateSpotInput = [
         .withMessage('Description is required'),
     check('price')
         .exists({ checkFalsy: true })
+        .withMessage('Price per day is required')
         .isNumeric()
-        .withMessage('Price per day is required'),
+        .withMessage('Price per day but be a number'),
     handleValidationErrors
 ];
 
@@ -55,7 +60,7 @@ const validateReviewInput = [
         .exists({ checkFalsy: true })
         .isNumeric()
         .custom(v => v >= 1 && v <= 5)
-        .withMessage('Stars must be an integer from 1 to 5'),
+        .withMessage('Stars must be provided'),
     handleValidationErrors
 ];
 
@@ -280,6 +285,7 @@ router.post('/:id/reviews', requireAuth, validateReviewInput, verifySpotId, asyn
             review,
             stars,
         });
+
         return res.json(newReview);
     }
 });

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Route } from 'react-router-dom';
 import { loadOneSpot } from '../../store/spots';
 import Reviews from '../Reviews';
-import ReviewModal from '../ReviewFormModal';
+import ReviewModal from '../ReviewsModal';
 import BookingConfirmation from '../BookingConfirmation';
 import './SpotByID.css';
 import BookingForm from '../BookingForm';
@@ -15,7 +15,7 @@ function SpotByID() {
     const [isLoaded, setIsLoaded] = useState(false);
     const spot = useSelector(state => state.spots[+id]);
     const sessionUser = useSelector(state => state.session.user)
-    console.log(spot)
+
     useEffect(() => {
         dispatch(loadOneSpot(id))
             .then(() => setIsLoaded(true))
@@ -114,7 +114,7 @@ function SpotByID() {
               <ReviewModal
                 user={sessionUser}
                 spotId={spot.id}
-                type="Add New"
+                type="Add"
                 reviewId=""
               />
             </div>

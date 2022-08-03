@@ -40,7 +40,7 @@ module.exports = {
           name: "Space House",
           description:
             "When you walk through the gate from the driveway or street, you're immediately welcomed into a very spacious courtyard.",
-          price: 1355,
+          price: 800,
           previewImage:
             "https://images.unsplash.com/photo-1608045742930-48cee6018255?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         },
@@ -67,25 +67,25 @@ module.exports = {
           country: "United States of America",
           lat: 34.10511,
           lng: -116.28575,
-          name: "Invisible House Joshua Tree - Skyscraper with Pool",
+          name: "Joshua Tree with love",
           description:
             "Quite simply, Invisible House is the most spectacular house in Joshua Tree.",
-          price: 3294.99,
+          price: 1225,
           previewImage:
             "https://media.istockphoto.com/photos/interior-and-exterior-design-of-pool-villa-with-swimming-pool-picture-id918342482?k=20&m=918342482&s=170667a&w=0&h=59LgUC91MXY2mI6gLzUlZ2LQVFFa9PFhhPcfxLd8Sqk=",
         },
         {
           ownerId: 2,
           address: "123123 Colder St",
-          city: "Burbank",
-          state: "California",
+          city: "Denver",
+          state: "Colorado",
           country: "USA",
           lat: -55,
           lng: -110,
-          name: "South Palm",
+          name: "My Rocky Hideout",
           description:
             "For the adventurous types, also within walking distance are some popular hiking trail",
-          price: 1355,
+          price: 730,
           previewImage:
             "https://images.unsplash.com/photo-1567428485548-c499e4931c10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Njh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         },
@@ -100,9 +100,54 @@ module.exports = {
           name: "Our House",
           description:
             "This home is very close to the shuttle stops in Palm Springs.",
-          price: 66,
+          price: 366,
           previewImage:
             "https://images.unsplash.com/photo-1627865485227-fc7c2f551afc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fGhvbWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60",
+        },
+        {
+          ownerId: 1,
+          address: "123123 Ocean Ave",
+          city: "Santa Barbara",
+          state: "California",
+          country: "USA",
+          lat: -45.133,
+          lng: -110.123,
+          name: "Coast Love",
+          description:
+            "Just minutes away from the Ocean",
+          price: 232,
+          previewImage:
+            "https://images.unsplash.com/photo-1597211833712-5e41faa202ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=300&q=60",
+        },
+        {
+          ownerId: 1,
+          address: "123 Creed Mill St",
+          city: "Greensboro",
+          state: "North Carolina",
+          country: "USA",
+          lat: 30.123,
+          lng: -110.123,
+          name: "Homeward Bound",
+          description:
+            "Spacious spot in the wilderness.",
+          price: 260,
+          previewImage:
+            "https://images.unsplash.com/photo-1589129140837-67287c22521b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGNhYmlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60",
+        },
+        {
+          ownerId: 1,
+          address: "123123 Nature Ave",
+          city: "Austin",
+          state: "Texas",
+          country: "USA",
+          lat: -25.123,
+          lng: -113.123,
+          name: "Modern Ranch House",
+          description:
+            "This home was build in 2015. Minutes away from the city!",
+          price: 366,
+          previewImage:
+            "https://images.unsplash.com/photo-1524627681145-fc98c3317b10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGJlYXV0aWZ1bCUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60",
         },
       ],
       {}

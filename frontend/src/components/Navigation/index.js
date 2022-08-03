@@ -38,8 +38,8 @@ const Navigation = ({ isLoaded }) => {
     // </>
     <div className="header">
       <div className="logo__container">
-        <i className="fa-solid fa-otter fa-2x"></i>
         <Link className="home__link" exact to="/">
+        <i className="fa-solid fa-otter fa-2x"></i>
           Mybnb
         </Link>
       </div>

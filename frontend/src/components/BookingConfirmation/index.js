@@ -13,9 +13,6 @@ function BookingConfirmation() {
     const spot = useSelector(state => state.spots[spotId]);
     const booking = useSelector(state => state.bookings[id]);
     const user = useSelector(state => state.session.user);
-    console.log('spot', spot);
-    console.log('booking', booking);
-    console.log('user', user);
 
     useEffect(() => {
         dispatch(loadSpotBookings(spotId));

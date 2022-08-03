@@ -82,13 +82,14 @@ router.post('/:id/images', requireAuth, verifyReviewId, verifyReviewOwner, verif
 });
 
 router.put('/:id', requireAuth, validateReviewInput, verifyReviewId, verifyReviewOwner, async (req, res, next) => {
-    const { review, stars } = req.body;
+    const { review, stars, imageURL } = req.body;
     try {
         const reviewToUpdate = await Review.findByPk(req.params.id);
         await reviewToUpdate.update({
             review,
             stars,
         });
+
         const reviewToReturn = await Review.findByPk(reviewToUpdate.id, {
             include: [{
                 model: User,

@@ -55,12 +55,12 @@ export const updateUserReviews = (id) => async dispatch => {
 };
 
 export const addReview = (spotId, newReview) => async (dispatch) => {
-    const { review, stars } = newReview;
+    const { review, stars} = newReview;
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
         method: "POST",
         body: JSON.stringify({
             review,
-            stars
+            stars,
         }),
     });
     const data = await response.json();
