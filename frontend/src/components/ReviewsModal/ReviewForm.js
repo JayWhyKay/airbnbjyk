@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addReview, editReview, loadSpotReviews } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
-import { loadOneSpot } from "../../store/spots";
+import { loadOneSpot, loadSpots } from "../../store/spots";
 import Stars from "./Stars";
 import "./ReviewForm.css";
 
@@ -27,13 +27,14 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
     } else {
       dispatch(addReview(spotId, { stars, review }))
         .then(() => onClose())
+        // console.log(data);
+        .then(() => dispatch(loadSpots()))
         .catch(async (res) => {
           const data = await res.json();
           if (data) setErrors(Object.values(data.errors));
         })
-        // console.log(data);
+        .then(() => dispatch(loadOneSpot(spotId)))
         .then(() => dispatch(loadSpotReviews(spotId)))
-        .then(() => dispatch(loadOneSpot(spotId)));
     }
   };
 
