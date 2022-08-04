@@ -33,7 +33,7 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
           const data = await res.json();
           if (data) setErrors(Object.values(data.errors));
         })
-        .then(() => dispatch(loadSpotReviews(spotId)))
+        .then(async() => await dispatch(loadSpotReviews(spotId)))
         .then(() => dispatch(loadOneSpot(spotId)))
     }
   };
