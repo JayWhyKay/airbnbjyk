@@ -11,6 +11,7 @@
 
 .profile__button:hover {
   box-shadow: 1.5px 1.5px 3px rgba(121, 121, 121, 0.5);
+  cursor: pointer;
 }
 
 .profile__button:focus {
