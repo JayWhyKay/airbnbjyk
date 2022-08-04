@@ -28,13 +28,13 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
       dispatch(addReview(spotId, { stars, review }))
         .then(() => onClose())
         // console.log(data);
-        .then(() => dispatch(loadSpots()))
         .catch(async (res) => {
+          console.log(res)
           const data = await res.json();
           if (data) setErrors(Object.values(data.errors));
         })
-        .then(() => dispatch(loadOneSpot(spotId)))
         .then(() => dispatch(loadSpotReviews(spotId)))
+        .then(() => dispatch(loadOneSpot(spotId)))
     }
   };
 
