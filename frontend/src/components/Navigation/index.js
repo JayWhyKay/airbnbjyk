@@ -44,14 +44,14 @@ const Navigation = ({ isLoaded }) => {
         </Link>
       </div>
 
-      <div className="search__container">
+      {/* <div className="search__container">
         <button>Anywhere</button>
         <button>Any Week</button>
         <button>Add Guest</button>
         <div className="search__glass">
           <i className="fa-solid fa-magnifying-glass fa-inverse fa-xs"></i>
         </div>
-      </div>
+      </div> */}
 
       <div className="profile__container">
         <p>Become a host</p>

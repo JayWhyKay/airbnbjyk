@@ -122,6 +122,7 @@ function SpotByID() {
                 spotId={spot.id}
                 type="Add"
                 reviewId=""
+                reviewList={true}
               />
             </div>
           </div>
