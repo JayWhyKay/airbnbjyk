@@ -27,14 +27,14 @@ function ReviewForm({ spotId, onClose, type, reviewId }) {
     } else {
       dispatch(addReview(spotId, { stars, review }))
         .then(() => onClose())
-        // console.log(data);
-        .catch(async (res) => {
-          console.log(res)
-          const data = await res.json();
-          if (data) setErrors(Object.values(data.errors));
-        })
-        .then(async() => await dispatch(loadSpotReviews(spotId)))
-        .then(() => dispatch(loadOneSpot(spotId)))
+        // .then(()=> dispatch(loadSpots()))
+        // .then(() => dispatch(loadOneSpot(spotId)))
+        // .then(() => dispatch(loadSpotReviews(spotId)))
+        // .catch(async (res) => {
+        //   console.log(res)
+        //   const data = await res.json();
+        //   if (data) setErrors(Object.values(data.errors));
+        // })
     }
   };
 

@@ -10,6 +10,9 @@ const {
   sequelize,
 } = require("../../db/models");
 
+
+const {singleMulterUpload, singlePublicFileUpload} = require ('../../awsS3')
+
 const { check } = require("express-validator");
 const {
   handleValidationErrors,
@@ -189,16 +192,18 @@ const verifyBookingSchedule = async (req, res, next) => {
 
 router.post(
   "/:id/images",
+  singleMulterUpload("image"),
   requireAuth,
   verifySpotId,
   verifySpotOwner,
   validateImageInput,
   async (req, res, next) => {
+    // const profileImageUrl = await singlePublicFileUpload(req.file);
     try {
       const newImage = await Image.create({
         spotId: req.params.id,
         imageableType: "Spot",
-        url: req.body.url,
+        url: req.body.url, //profileImageUrl
       });
       return res.json(
         await Image.findByPk(newImage.id, {
@@ -226,20 +231,20 @@ router.post(
 //       },
 //     });
 //     res.json(spotImage)
-    // try {
-    //   const newImage = await Image.create({
-    //     spotId: req.params.id,
-    //     imageableType: "Spot",
-    //     url: req.body.url,
-    //   });
-    //   return res.json(
-    //     await Image.findByPk(newImage.id, {
-    //       attributes: ["id", ["spotId", "imageableId"], "imageableType", "url"],
-    //     })
-    //   );
-    // } catch (err) {
-    //   next(err);
-    // }
+// try {
+//   const newImage = await Image.create({
+//     spotId: req.params.id,
+//     imageableType: "Spot",
+//     url: req.body.url,
+//   });
+//   return res.json(
+//     await Image.findByPk(newImage.id, {
+//       attributes: ["id", ["spotId", "imageableId"], "imageableType", "url"],
+//     })
+//   );
+// } catch (err) {
+//   next(err);
+// }
 //   }
 // );
 
@@ -325,6 +330,7 @@ router.get("/:id/bookings", requireAuth, verifySpotId, async (req, res) => {
   }
 });
 
+// Create a Review for a Spot by id
 router.post(
   "/:id/reviews",
   requireAuth,
@@ -351,8 +357,19 @@ router.post(
         review,
         stars,
       });
-
-      return res.json(newReview);
+      const createdReview = await Review.findByPk(newReview.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["id", "firstName", "lastName"],
+          },
+          {
+            model: Image,
+            attributes: ["url"],
+          },
+        ],
+      });
+      return res.json(createdReview);
     }
   }
 );

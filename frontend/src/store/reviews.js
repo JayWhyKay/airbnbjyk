@@ -64,6 +64,7 @@ export const addReview = (spotId, newReview) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  // console.log(data)
   dispatch(createReview(data));
   return response;
 };
@@ -104,8 +105,12 @@ const reviewsReducer = (state = initialState, action) => {
       action.payload.map((review) => (newState[review.id] = review));
       return newState;
     case CREATE_REVIEW:
-      newState = Object.assign({}, state);
-      newState[action.payload.id] = action.payload;
+      // newState = Object.assign({}, state);
+      // newState[action.payload.id] = action.payload;
+      // return newState;
+      newState = { ...state }
+      console.log(action.payload)
+      newState[action.payload.id] = {...newState[action.payload.id],...action.payload}
       return newState;
     case DELETE_REVIEW:
       newState = Object.assign({}, state);

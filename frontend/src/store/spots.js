@@ -41,10 +41,13 @@ export const loadSpots = () => async (dispatch) => {
 };
 
 export const loadOneSpot = (id) => async (dispatch) => {
-  const response = await csrfFetch(`/api/spots/${id}`);
-  const data = await response.json();
-  dispatch(getOneSpot(data));
-  return response;
+  const response = await fetch(`/api/spots/${id}`);
+  if (response.ok) {
+      const data = await response.json();
+      // console.log('fetch from backend get1spot data----', data)
+      dispatch(getOneSpot(data));
+      return response;
+  }
 };
 
 export const loadUserSpots = (id) => async (dispatch) => {
@@ -138,8 +141,11 @@ const spotsReducer = (state = initialState, action) => {
       action.payload.map((spot) => (newState[spot.id] = spot));
       return newState;
     case GET_ONE_SPOT:
-      newState = Object.assign({}, state);
-      newState[action.payload.id] = action.payload;
+      // newState = Object.assign({}, state);
+      // newState[action.payload.id] = action.payload;
+      // return newState;
+      newState = { ...state }
+      newState[action.payload.id] = action.payload
       return newState;
     case CREATE_SPOT:
       newState = Object.assign({}, state);
