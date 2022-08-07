@@ -120,7 +120,7 @@ function BookingConfirmation() {
             </div>
           </div>
           <div className="booking_confirmation__map">
-
+              {/* {map} */}
           </div>
         </div>
       )}
