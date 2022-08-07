@@ -24,12 +24,12 @@ function ReviewStars({ spotId }) {
   return (
     <>
       {isloaded && reviews && (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <span className="avg-rating">
+        <div className="bookings__reviews">
+          <span className="avg__rating">
             {avgStarRating === "NaN" ? "New" : avgStarRating}
           </span>
-        </>
+          <i className="fa-solid fa-star"></i>
+        </div>
       )}
     </>
   );

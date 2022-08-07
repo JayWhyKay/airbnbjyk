@@ -82,11 +82,11 @@ const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKINGS:
       newState = Object.assign({}, state);
-      action.payload.map((booking) => (newState[booking.id] = booking));
+      action.payload.map((booking) => newState[booking.id] = booking);
       return newState;
     case CREATE_BOOKING:
-      newState = Object.assign({}, state);
-      newState[action.payload.id] = action.payload;
+      newState = { ...state }
+      newState[action.payload.id] = {...newState[action.payload.id],...action.payload}
       return newState;
     case DELETE_BOOKING:
       newState = Object.assign({}, state);

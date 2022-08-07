@@ -79,6 +79,12 @@ function ProfileButton({ user }) {
           >
             <button className="profile__link">My Reviews</button>
           </div>
+          <div
+            className="profile__listings"
+            onClick={() => history.push(`/users/${user.id}/bookings`)}
+          >
+            <button className="profile__link">My Bookings</button>
+          </div>
           <div>
             <button className="log__out__button" onClick={logout}>
               Log Out

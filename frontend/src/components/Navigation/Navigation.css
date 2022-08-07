@@ -1,3 +1,5 @@
+
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,6 +12,7 @@
   border-bottom: 1px solid rgba(211, 211, 211, 0.8);
   z-index: 1;
   width: 100%;
+  min-width: 760px;
 }
 
 .logo__container {
@@ -22,10 +25,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 15vw;
+  width: 18vw;
   margin-right: 50px;
 }
 .profile__container > div {
+  padding-left: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,10 +87,12 @@
 }
 
 .language__icon {
+  background-color: #ff5a5f;
   width: 20px;
   height: 20px;
 }
 
 .fa-solid.fa-globe {
+  padding-left: 2vw;
   color: gray;
 }

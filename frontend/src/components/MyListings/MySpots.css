@@ -1,3 +1,27 @@
+@media screen and (min-width: 1900px) {
+  .mylisting_card {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1900px) and (min-width: 1800px) {
+  .mylisting_card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1800px) and (min-width: 800px) {
+  .mylisting_cards {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 800px) and (min-width: 600px) {
+  .mylisting_cards {
+    width: 80%;
+  }
+}
+
+
 .mylisting_card {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

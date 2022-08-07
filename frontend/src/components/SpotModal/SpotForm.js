@@ -23,10 +23,24 @@ function SpotForm({ spotId, onClose, type }) {
     listingToEdit ? listingToEdit.description : ""
   );
   const [price, setPrice] = useState(listingToEdit ? listingToEdit.price : "");
-  const [previewImage, setPreviewImage] = useState(
-    listingToEdit ? listingToEdit.previewImage : ""
+  const [prevImage, setPrevImage] = useState(
+    listingToEdit ? listingToEdit.previewImage : []
+  );
+  const [images, setImages] = useState(
+    listingToEdit ? listingToEdit.previewImage : []
   );
   const [errors, setErrors] = useState([]);
+  const prevFile = (e) => {
+    const picArr = Object.values(e.target.files);
+    if (picArr.length > 0) setPrevImage(picArr);
+    // console.log(picArr);
+  };
+  const imageFiles = (e) => {
+    const picArr = Object.values(e.target.files);
+    let pictures = prevImage.concat(picArr);
+    if (picArr.length > 0) setImages(pictures);
+    // console.log(picArr);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +55,7 @@ function SpotForm({ spotId, onClose, type }) {
       name,
       description,
       price,
-      previewImage,
+      images,
     };
     if (spotId) {
       dispatch(editSpot(spotId, newSpot))
@@ -148,12 +162,22 @@ function SpotForm({ spotId, onClose, type }) {
           />
         </div>
         <div className="form-element">
-          <label>Preview image url</label>
+          <label>Preview image</label>
           <input
-            type="text"
-            value={previewImage}
+            type="file"
             maxLength="250"
-            onChange={(e) => setPreviewImage(e.target.value)}
+            onChange={prevFile}
+          />
+        </div>
+        <div className="form-element">
+          <label>Additional Images</label>
+          <input
+            id="file-input"
+            className="form-input"
+            type="file"
+            multiple
+            accept="image/*, .png .jpg .jpeg"
+            onChange={imageFiles}
           />
         </div>
         <div className="form-element description">

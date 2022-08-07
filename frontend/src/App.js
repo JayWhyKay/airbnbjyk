@@ -8,7 +8,7 @@ import SpotByID from "./components/SpotByID";
 import MyReviews from "./components/MyReviews";
 import MyListings from "./components/MyListings";
 import BookingConfirmation from "./components/BookingConfirmation";
-import ManageBookingList from "./components/ManageBookingList";
+import MyBookings from "./components/MyBookings";
 import Footer from "./components/Footer";
 
 function App() {
@@ -29,18 +29,18 @@ function App() {
         <Route exact path="/listings/:id">
           <SpotByID />
         </Route>
-        {/* <Route path='/users/:id/bookings'>
-          <ManageBookingList />
-        </Route> */}
+        <Route path='/users/:id/bookings'>
+          <MyBookings />
+        </Route>
         <Route path="/users/:id/listings">
           <MyListings />
         </Route>
         <Route path="/users/:id/reviews">
           <MyReviews />
         </Route>
-        {/* <Route path='/spots/:spotId/bookings/:id'>
+        <Route path='/listings/:spotId/bookings/:id'>
           <BookingConfirmation />
-        </Route> */}
+        </Route>
         <Route>Sorry resource not found. Please check url</Route>
       </Switch>
       <Footer />

@@ -1,3 +1,43 @@
+@media screen and (max-width: 2300px) and (min-width: 1900px) {
+  .spotsByID__Container {
+    width: 70%;
+  }
+
+}
+
+@media screen and (max-width: 1900px) and (min-width: 1000px) {
+  .spotsByID__Container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .spotsByID__Container {
+    width: 80%;
+  }
+
+}
+
+@media screen and (max-width: 1000px) and (min-width: 200px) {
+  .spotsByID__Container {
+    width: 90%;
+  }
+  .spotById_details__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .spotById__Image {
+    width: 100%;
+  }
+  .booking_form__container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .spotsByID__Container {
   display: flex;
   flex-direction: column;
@@ -93,7 +133,22 @@
   max-height: 12rem;
 }
 
-.spotById__details__header {
+.spotById_details__container {
+  /* background-color: aqua; */
+  width: 80%;
+  display: flex;
+}
+
+.booking_form__container {
+  margin-top: 8px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.spotById__details__container > div {
+  background-color: beige;
   margin-top: 1.5rem;
   width: 40rem;
   border-bottom: 1px solid rgba(190, 190, 190, 0.35);
@@ -155,6 +210,23 @@
   margin-top: 0;
   font-weight: 500;
   color: #222222;
+}
+
+.spotById__amenities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.spotById__amenities >div {
+  margin: 10px 10px;
+  width:40%
+}
+
+.spotById__amenities >div >span {
+  padding-left: 1vw;
+  font-size: 18px;
+  color:rgba(100, 100, 100, 1.0)
 }
 
 .review__byId__container {
