@@ -110,7 +110,10 @@ function BookingConfirmation() {
                 ""
               )}
               {new Date(booking.startDate) >= new Date() ? (
-                <button className="booking_cancel__button" onClick={cancelBooking}>
+                <button
+                  className="booking_cancel__button"
+                  onClick={cancelBooking}
+                >
                   <i className="fa-solid fa-ban fa-xl"></i>
                   <span>Cancel Booking</span>
                 </button>
@@ -120,7 +123,17 @@ function BookingConfirmation() {
             </div>
           </div>
           <div className="booking_confirmation__map">
-              {/* {map} */}
+            {/* {map} */}
+            <iframe
+              src={`https://www.google.com/maps?q=${spot.lat},${spot.lng}&hl=es;&output=embed`}
+              title={spot.id}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       )}
