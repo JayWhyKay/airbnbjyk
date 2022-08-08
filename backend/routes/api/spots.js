@@ -11,7 +11,7 @@ const {
 } = require("../../db/models");
 
 
-const {singleMulterUpload, singlePublicFileUpload} = require ('../../awsS3')
+const {singleMulterUpload, singlePublicFileUpload, multipleMulterUpload, multiplePublicFileUpload} = require ('../../awsS3')
 
 const { check } = require("express-validator");
 const {
@@ -494,18 +494,11 @@ router.delete(
 );
 
 router.post("/", requireAuth, validateSpotInput, async (req, res) => {
-  const {
-    address,
-    city,
-    state,
-    country,
-    lat,
-    lng,
-    name,
-    description,
-    price,
-    previewImage,
-  } = req.body;
+  const {address, city, state, country, lat, lng, name, description, price, previewImage} = req.body
+  // const [prevObj] = prevImage
+  // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+ prevImage[0].file)
+  // const previewUrl = await singlePublicFileUpload(prevImage.File)
+
   const newSpot = await Spot.create({
     ownerId: req.user.id,
     address,
@@ -519,6 +512,17 @@ router.post("/", requireAuth, validateSpotInput, async (req, res) => {
     price,
     previewImage,
   });
+
+  // const imgFromAws = await multiplePublicFileUpload(req.file);
+  // const arr = []
+
+  // for (let i = 0; i < imgFromAws.length; i++) {
+  //     let spotpic = await Image.create({
+  //         spotId: spot.id,
+  //         url: imgFromAws[i]
+  //     })
+  //     arr.push(spotpic);
+  // }
   return res.json(await Spot.findByPk(newSpot.id));
 });
 

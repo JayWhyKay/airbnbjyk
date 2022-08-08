@@ -26,21 +26,18 @@ function SpotForm({ spotId, onClose, type }) {
   const [prevImage, setPrevImage] = useState(
     listingToEdit ? listingToEdit.previewImage : []
   );
-  const [images, setImages] = useState(
-    listingToEdit ? listingToEdit.previewImage : []
-  );
+  // const [images, setImages] = useState(
+  //   listingToEdit ? listingToEdit.previewImage : []
+  // );
   const [errors, setErrors] = useState([]);
-  const prevFile = (e) => {
-    const picArr = Object.values(e.target.files);
-    if (picArr.length > 0) setPrevImage(picArr);
-    // console.log(picArr);
-  };
-  const imageFiles = (e) => {
-    const picArr = Object.values(e.target.files);
-    let pictures = prevImage.concat(picArr);
-    if (picArr.length > 0) setImages(pictures);
-    // console.log(picArr);
-  };
+  // const prevFile = (e) => {
+  //   const picArr = Object.values(e.target.files);
+  //   if (picArr.length > 0) setPrevImage(picArr);
+  // };
+  // const imageFiles = (e) => {
+  //   const picArr = Object.values(e.target.files);
+  //   if (picArr.length > 0) setImages(picArr);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +52,8 @@ function SpotForm({ spotId, onClose, type }) {
       name,
       description,
       price,
-      images,
+      previewImage: prevImage,
+      // images,
     };
     if (spotId) {
       dispatch(editSpot(spotId, newSpot))
@@ -161,24 +159,23 @@ function SpotForm({ spotId, onClose, type }) {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-        <div className="form-element">
-          <label>Preview image</label>
-          <input
-            type="file"
-            maxLength="250"
-            onChange={prevFile}
-          />
-        </div>
-        <div className="form-element">
-          <label>Additional Images</label>
-          <input
-            id="file-input"
-            className="form-input"
-            type="file"
-            multiple
-            accept="image/*, .png .jpg .jpeg"
-            onChange={imageFiles}
-          />
+        <div className="spot_images__entries">
+          <div className="form-element">
+            <label>Preview image url</label>
+            <input type="text" maxLength="250" value={prevImage} onChange={(e)=>setPrevImage(e.target.value)} />
+            {/* <input type="file" maxLength="250" onChange={prevFile} /> */}
+          </div>
+          {/* <div className="form-element">
+            <label>Additional Images</label>
+            <input
+              id="file-input"
+              className="form-input"
+              type="file"
+              multiple
+              accept="image/*, .png .jpg .jpeg"
+              onChange={imageFiles}
+            />
+          </div> */}
         </div>
         <div className="form-element description">
           <label>Description</label>

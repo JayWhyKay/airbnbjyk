@@ -43,10 +43,10 @@ export const loadSpots = () => async (dispatch) => {
 export const loadOneSpot = (id) => async (dispatch) => {
   const response = await fetch(`/api/spots/${id}`);
   if (response.ok) {
-      const data = await response.json();
-      // console.log('fetch from backend get1spot data----', data)
-      dispatch(getOneSpot(data));
-      return response;
+    const data = await response.json();
+    // console.log('fetch from backend get1spot data----', data)
+    dispatch(getOneSpot(data));
+    return response;
   }
 };
 
@@ -70,6 +70,25 @@ export const addSpot = (newSpot) => async (dispatch) => {
     price,
     previewImage,
   } = newSpot;
+  // let formData = new FormData();
+  // formData.append("address", address);
+  // formData.append("city", city);
+  // formData.append("state", state);
+  // formData.append("country", country);
+  // formData.append("lat", lat);
+  // formData.append("lng", lng);
+  // formData.append("name", name);
+  // formData.append("description", description);
+  // formData.append("price", price);
+  // // formData.append("prevImg", prevImage);
+  // // formData.append("images", images);
+  // console.log(formData);
+
+  // if (images && images.length !== 0) {
+  //   for (let i = 0; i < images.length; i++) {
+  //     formData.append("images", images[i]);
+  //   }
+  // }
   const response = await csrfFetch("/api/spots", {
     method: "POST",
     body: JSON.stringify({
@@ -144,8 +163,8 @@ const spotsReducer = (state = initialState, action) => {
       // newState = Object.assign({}, state);
       // newState[action.payload.id] = action.payload;
       // return newState;
-      newState = { ...state }
-      newState[action.payload.id] = action.payload
+      newState = { ...state };
+      newState[action.payload.id] = action.payload;
       return newState;
     case CREATE_SPOT:
       newState = Object.assign({}, state);
