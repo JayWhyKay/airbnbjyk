@@ -4,7 +4,7 @@ MyBnb is a clone of Airbnb. It is a website that provides an online marketplace 
 
 [Click here to view Mybnb Live Site](https://airbnb-clone-jk.herokuapp.com/)
 
-## Please see below links to project Wiki:\
+## Please see below links to project Wiki:
 [Feature List](https://github.com/JayWhyKay/airbnbjyk/wiki/Feature-List) \
 [Database Schema](https://github.com/JayWhyKay/airbnbjyk/wiki/Database-Schema) \
 [Frontend Routes](https://github.com/JayWhyKay/airbnbjyk/wiki/Frontend-Routes) \
