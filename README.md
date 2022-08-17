@@ -34,4 +34,10 @@ To access full functionality of the app please follow the instructions below to 
 
 You will be able to test the features without sign up by click on the "Demo User" button located in the Login modal. To bring up the Login modal click the login button located at the top right of the page. 
 
-<img width="1681" alt="Screen Shot 2022-07-26 at 1 49 53 PM" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/login.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/login.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-home.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-spotdetail.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-mylistings.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-myreviews.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-mybookings.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/mybnb-bookingdetail.png">
