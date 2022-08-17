@@ -5,11 +5,11 @@ MyBnb is a clone of Airbnb. It is a website that provides an online marketplace 
 [Click here to view Mybnb Live Site](https://airbnb-clone-jk.herokuapp.com/)
 
 ## Please see below links to project Wiki:\
-[Feature List](https://github.com/fangruz114/AirBnB-backend/wiki/Feature-List) \
-[Database Schema](https://github.com/fangruz114/AirBnB-backend/wiki/DB-Schema) \
-[Frontend Routes](https://github.com/fangruz114/AirBnB-backend/wiki/Frontend-Routes) \
-[API Routes](https://github.com/fangruz114/AirBnB-backend/wiki/API-Routes) \
-[Redux Store StateShape](https://github.com/fangruz114/AirBnB-backend/wiki/SimplyBnB-Redux-State-Shap)
+[Feature List](https://github.com/JayWhyKay/airbnbjyk/wiki/Feature-List) \
+[Database Schema](https://github.com/JayWhyKay/airbnbjyk/wiki/Database-Schema) \
+[Frontend Routes](https://github.com/JayWhyKay/airbnbjyk/wiki/Frontend-Routes) \
+[API Routes](https://github.com/JayWhyKay/airbnbjyk/wiki/API-Routes) \
+[Redux Store StateShape](https://github.com/JayWhyKay/airbnbjyk/wiki/Mybnb-Redux-State)
 
 
 ## Technologies Used:
@@ -24,12 +24,14 @@ MyBnb is a clone of Airbnb. It is a website that provides an online marketplace 
 ### Backend
 - Sequelize
 - Express
+- Sqlite
 - PostgreSQL
 
-# Features Directions:
+## Directions:
+To access full functionality of the app please follow the instructions below to login as a demo user.
 
-## Home Page Demo User:
+## Demo User Login:
 
-You will be able to test the features without sign up by click on the "Demo User" button.
+You will be able to test the features without sign up by click on the "Demo User" button located in the Login modal. To bring up the Login modal click the login button located at the top right of the page. 
 
-<img width="1681" alt="Screen Shot 2022-07-26 at 1 49 53 PM" src="https://user-images.githubusercontent.com/101694480/181109450-445362eb-470c-48c3-a6ca-0373425d16d7.png">
+<img width="1681" alt="Screen Shot 2022-07-26 at 1 49 53 PM" src="https://github.com/JayWhyKay/airbnbjyk/blob/main/login.png">
