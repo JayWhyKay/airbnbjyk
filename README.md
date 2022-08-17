@@ -1,8 +1,8 @@
-# About Simplybnb
+# About Mybnb
 
-SimplyBnb is a clone of the website Airbnb that provides an online marketplace for lodging, primarily homestays for vacation rentals, and tourism activities.
+MyBnb is a clone of Airbnb. It is a website that provides an online marketplace for lodging, primarily homestays for vacation rentals, and tourism activities.
 
-[Click here to view Simplybnb Live Site](https://airbnb-clone-fangru-zhou.herokuapp.com/)
+[Click here to view Mybnb Live Site](https://airbnb-clone-jk.herokuapp.com/)
 
 ## Please see below links to project Wiki:\
 [Feature List](https://github.com/fangruz114/AirBnB-backend/wiki/Feature-List) \
